@@ -9,10 +9,13 @@
 #import "FirstViewController.h"
 
 @interface FirstViewController ()
+@property (weak, nonatomic) IBOutlet UIStepper *stepper;
 
 @end
 
 @implementation FirstViewController
+- (IBAction)stepperTapped:(UIStepper *)sender {
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
