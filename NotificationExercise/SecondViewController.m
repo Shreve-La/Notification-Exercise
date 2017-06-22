@@ -14,6 +14,19 @@
 @end
 
 @implementation SecondViewController
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    NSLog(@"View Did Load");
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCountLabel:) name:@"stepperValueChanged" object:nil];
+}
+
+-(void)updateCountLabel:(NSNotification*)notification
+{
+    NSLog(@"Got Notification");
+    self.countLabel.text =[notification.userInfo[@"stepperValue"] stringValue];
+    ;}
+
+
 
 
 @end

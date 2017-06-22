@@ -10,18 +10,31 @@
 
 @interface FirstViewController ()
 @property (weak, nonatomic) IBOutlet UIStepper *stepper;
+@property (nonatomic,strong)  NSNumber *stepperValue;
 
 @end
 
 @implementation FirstViewController
-- (IBAction)stepperTapped:(UIStepper *)sender {
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
+//    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+
 }
 
 
+- (IBAction)stepperTapped:(UIStepper *)sender {
+    NSLog(@"Called stepperTapped");
+    self.stepperValue = [NSNumber numberWithDouble:([sender value])];
+    NSLog(@"%@", self.stepperValue);
+    NSDictionary *userInput = @{@"stepperValue": self.stepperValue};
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"stepperValueChanged" object:self userInfo: userInput];
+}
+                                                
+
+                                                
+                                                
+                                                
+                                                
 
 @end
